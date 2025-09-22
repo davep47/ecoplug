@@ -1,7 +1,12 @@
 # ecoplug
-
+--copied from https://github.com/dbecknel/ecoplug  
+which was  
 -- Copied from https://github.com/gbealmer/pyecoplug
+I didn't do anything extra but update the switch.py file to remove the import of EVENT_TIME_CHANGED as it is missing(replaced?) in newer homeassistant versions.
 
+Everything below with the exception of formatting the code block was taken verbatim from https://github.com/dbecknel/ecoplug  
+Thanks to everyone that worked on this before.  
+  
 I updated the python to work with the latest releases of home assistant.  The manifest.json needed a version.  switch.py had a deprecated object SwitchDevice, so I switched to SwitchEntity and updated the call to setup_platform accordingly.  Also, I added a unique_id to get rid of the error screen.  Finally, I added logic for displaying on and off instead of true and false.
 
 NOTE: works for the plug that I am using and quiets the logs down.
@@ -15,8 +20,10 @@ Home Assistant installation
 Plugs must be setup on the same network as your homeassistant system via the Eco Plug apk.
 Copy folder/files from "ecoplug" to "your homeassistant dir"/custom_components/ecoplug
 Edit your configuration.yaml and add the following lines
+```
    switch:
    - platform: ecoplug
      scan_interval: 10
+```
 Restart homeassistant. The requirements will be loaded successfully by homeassistant.
 Plugs on the same network will be discovered and switches added in the ui.
